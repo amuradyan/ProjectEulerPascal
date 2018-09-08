@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="10"/>
+    <BuildModes Active="Default"/>
+    <Units Count="1">
+      <Unit0>
+        <Filename Value="ProjectEuler.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="10" Y="3"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+    </Units>
+    <JumpHistory Count="4" HistoryIndex="3">
+      <Position1>
+        <Filename Value="ProjectEuler.pas"/>
+        <Caret Line="25" Column="6"/>
+      </Position1>
+      <Position2>
+        <Filename Value="ProjectEuler.pas"/>
+        <Caret Line="9" Column="37"/>
+      </Position2>
+      <Position3>
+        <Filename Value="ProjectEuler.pas"/>
+        <Caret Line="3" Column="28"/>
+      </Position3>
+      <Position4>
+        <Filename Value="ProjectEuler.pas"/>
+        <Caret Line="4"/>
+      </Position4>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>
