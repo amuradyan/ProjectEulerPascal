@@ -10,3 +10,12 @@
        | |            | |       / ^ \                          | |    
        |_|            |_|      /_/ \_\                         |_|    
 ```
+
+## Adding FPTest to a project in Lazarus IDE
+
+1. Clone FPTest like so `git clone https://github.com/graemeg/fptest`
+2. Open your Lazarus project and go to `Package -> Open Package File(.ipk)...`
+3. Select `fptest.ipk` from `fptest` repo you just cloned
+4. In the package explorer window click `Compile` and then `Use -> Add to Project`
+
+You are done. Now the `uses` statement should be able to find FPTest related types and methods.
