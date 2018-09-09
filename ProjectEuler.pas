@@ -1,10 +1,30 @@
 program ProjectEuler;
 
-Uses math;
+Uses math, sysutils;
 
 type
   IntVector = Array of Integer;
   BoolVector = Array of Boolean;
+
+function isPalindrome(number: Int64): Boolean;
+
+var
+  stringRep: String;
+  i: Integer;
+begin
+  stringRep := IntToStr(number);
+  isPalindrome := TRUE;
+
+  For i := 1 to ceil(((Length(stringRep) - 1) div 2)) + 1 do
+  begin
+    // Strings are 1-based indexed arrays
+    If stringRep[i] <> stringRep[Length(stringRep) + 1 - i] then
+    begin
+       isPalindrome := FALSE;
+       Break;
+    end;
+  end;
+end;
 
 { @param limit is exclusive }
 function SieveOfEratosthenes(limit: Integer): IntVector;
@@ -46,14 +66,32 @@ begin
   end;
 end;
 
+{[Largest palindrome product](https://projecteuler.net/problem=4)}
+procedure LargestPalindromeProduct;
+
+var
+  largestPalindrome: Int64;
+  i, j: Integer;
+begin
+  largestPalindrome := 0;
+
+  For i := 100 to 999 do
+      For j := i to 999 do
+        If isPalindrome(i * j) then
+        begin
+           If largestPalindrome < i * j then largestPalindrome := i * j;
+        end;
+
+  WriteLn('Largest Palindrome Product - ', largestPalindrome);
+end;
+
+{(Largest prime factor)[https://projecteuler.net/problem=3]}
 procedure LargestPrimeFactor(number: Int64);
 
 var
   cap, primeFactorsSize, i: Integer;
-  fraction: Int64;
   primesOfInterest, primeFactors: IntVector;
 begin
-  fraction := number;
   cap := ceil(sqrt(number));
   primeFactorsSize := 0;
   SetLength(primeFactors, primeFactorsSize);
@@ -62,15 +100,15 @@ begin
 
   For i := 0 to Length(primesOfInterest) - 1 do
   begin
-    If (fraction mod primesOfInterest[i] = 0) then
+    If (number mod primesOfInterest[i] = 0) then
     begin
        primeFactorsSize := primeFactorsSize + 1;
        SetLength(primeFactors, primeFactorsSize);
        primeFactors[primeFactorsSize - 1] := primesOfInterest[i];
 
-       While (fraction mod primesOfInterest[i] = 0) do
+       While (number mod primesOfInterest[i] = 0) do
        begin
-         fraction := fraction div primesOfInterest[i];
+         number := number div primesOfInterest[i];
        end;
     end;
   end;
@@ -78,6 +116,7 @@ begin
   WriteLn('Largest Prime Factor - ', primeFactors[primeFactorsSize - 1]);
 end;
 
+{(Even Fibonacci numbers)[https://projecteuler.net/problem=2]}
 procedure EvenFibonacciNumbers;
 
 var
@@ -98,6 +137,7 @@ begin
   WriteLn('Even Fibonacci Numbers - ', sum);
 end;
 
+{(Multiples of 3 and 5)[https://projecteuler.net/problem=1]}
 procedure MultiplesOf3And5;
 
 var
@@ -110,13 +150,14 @@ begin
     If (i mod 3 = 0) or (i mod 5 = 0) then sum := sum + i;
   end;
 
-  WriteLn('Sum Of Multiples Of 3 And 5 - ', sum);
+  WriteLn('Multiples Of 3 And 5 - ', sum);
 end;
 
 begin
   MultiplesOf3And5;
   EvenFibonacciNumbers;
   LargestPrimeFactor(600851475143);
+  LargestPalindromeProduct;
 
   ReadLn;
 end.
