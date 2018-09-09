@@ -1,38 +1,42 @@
 program ProjectEuler;
 
+{$MODE TP}
+
 Uses math, sysutils;
 
 type
-  IntVector = Array of Integer;
+  IntVector = Array of Int64;
   BoolVector = Array of Boolean;
 
 function isPalindrome(number: Int64): Boolean;
 
 var
   stringRep: String;
-  i: Integer;
+  i: Int64;
 begin
+  i := 1;
+
   stringRep := IntToStr(number);
   isPalindrome := TRUE;
-
-  For i := 1 to ceil(((Length(stringRep) - 1) div 2)) + 1 do
+  While i <= ceil64(((Length(stringRep) - 1) div 2)) + Int64(1) do
   begin
     // Strings are 1-based indexed arrays
-    If stringRep[i] <> stringRep[Length(stringRep) + 1 - i] then
+    If stringRep[i] <> stringRep[Length(stringRep) + Int64(1) - i] then
     begin
        isPalindrome := FALSE;
        Break;
     end;
+    i := i + 1;
   end;
 end;
 
 { @param limit is exclusive }
-function SieveOfEratosthenes(limit: Integer): IntVector;
+function SieveOfEratosthenes(limit: Int64): IntVector;
 
 var
   primes: IntVector;
   lattice: BoolVector;
-  i, j, primesSize: Integer;
+  i, j, primesSize: Int64;
 begin
   If limit < 3 then
   begin
@@ -41,12 +45,13 @@ begin
   else
   begin
     primesSize := 1;
+    i := 2;
     SetLength(lattice, limit);
     SetLength(primes, primesSize);
 
-    For i := 2 to limit do
+    While i <= limit do
     begin
-      if lattice[i] = FALSE then
+      If lattice[i] = FALSE then
       begin
          j := 2;
          primes[primesSize - 1] := i;
@@ -59,6 +64,7 @@ begin
            j := j + 1;
          end;
       end;
+      i := i + 1;
     end;
     SetLength(primes, primesSize - 1);
 
@@ -71,16 +77,22 @@ procedure LargestPalindromeProduct;
 
 var
   largestPalindrome: Int64;
-  i, j: Integer;
+  i, j: Int64;
 begin
+  i := 100;
   largestPalindrome := 0;
 
-  For i := 100 to 999 do
-      For j := i to 999 do
-        If isPalindrome(i * j) then
-        begin
-           If largestPalindrome < i * j then largestPalindrome := i * j;
-        end;
+  While i <= 999 do
+  begin
+    j := i;
+    While j <= 999 do
+    begin
+      If isPalindrome(i * j) and (largestPalindrome < i * j) then
+         largestPalindrome := i * j;
+      j := j + 1;
+    end;
+    i := i + 1;
+  end;
 
   WriteLn('Largest Palindrome Product - ', largestPalindrome);
 end;
@@ -89,16 +101,17 @@ end;
 procedure LargestPrimeFactor(number: Int64);
 
 var
-  cap, primeFactorsSize, i: Integer;
+  cap, primeFactorsSize, i: Int64;
   primesOfInterest, primeFactors: IntVector;
 begin
-  cap := ceil(sqrt(number));
+  cap := ceil64(sqrt(number));
   primeFactorsSize := 0;
+  i := 0;
   SetLength(primeFactors, primeFactorsSize);
 
   primesOfInterest := SieveOfEratosthenes(cap);
 
-  For i := 0 to Length(primesOfInterest) - 1 do
+  While i <= Length(primesOfInterest) - Int64(1) do
   begin
     If (number mod primesOfInterest[i] = 0) then
     begin
@@ -111,6 +124,7 @@ begin
          number := number div primesOfInterest[i];
        end;
     end;
+    i := i + 1;
   end;
 
   WriteLn('Largest Prime Factor - ', primeFactors[primeFactorsSize - 1]);
@@ -120,19 +134,21 @@ end;
 procedure EvenFibonacciNumbers;
 
 var
-  fibPrev, fibCurr, sum: Integer;
+  fibPrev, fibCurr, sum: Int64;
+  cap: Int64;
 begin
   fibPrev := 1;
   fibCurr := 2;
   sum := 0;
+  cap := 4000000;
 
-  While fibCurr < 4000001 do
-    begin
-      If (fibCurr mod 2 = 0) then sum := sum + fibCurr;
+  While fibCurr < cap do
+  begin
+    If (fibCurr mod 2 = 0) then sum := sum + fibCurr;
 
-      fibCurr := fibCurr + fibPrev;
-      fibPrev := fibCurr - fibPrev;
-    end;
+    fibCurr := fibCurr + fibPrev;
+    fibPrev := fibCurr - fibPrev;
+  end;
 
   WriteLn('Even Fibonacci Numbers - ', sum);
 end;
@@ -141,13 +157,15 @@ end;
 procedure MultiplesOf3And5;
 
 var
-  i, sum: Integer;
+  i, sum: Int64;
 begin
   sum := 0;
+  i := 0;
 
-  For i := 0 to 999 do
+  While i <= 999 do
   begin
     If (i mod 3 = 0) or (i mod 5 = 0) then sum := sum + i;
+    i := i + 1;
   end;
 
   WriteLn('Multiples Of 3 And 5 - ', sum);
