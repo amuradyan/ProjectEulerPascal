@@ -81,9 +81,7 @@ end;
 procedure EvenFibonacciNumbers;
 
 var
-  fibPrev: Integer;
-  fibCurr: Integer;
-  sum: Integer;
+  fibPrev, fibCurr, sum: Integer;
 begin
   fibPrev := 1;
   fibCurr := 2;
@@ -103,8 +101,7 @@ end;
 procedure MultiplesOf3And5;
 
 var
-  i: Integer;
-  sum: Integer;
+  i, sum: Integer;
 begin
   sum := 0;
 
