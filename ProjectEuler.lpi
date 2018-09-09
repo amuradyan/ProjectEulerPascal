@@ -29,11 +29,26 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <Units Count="1">
+    <RequiredPackages Count="1">
+      <Item1>
+        <PackageName Value="fptest"/>
+      </Item1>
+    </RequiredPackages>
+    <Units Count="3">
       <Unit0>
         <Filename Value="ProjectEuler.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
+      <Unit1>
+        <Filename Value="tests.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Tests"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="solutions.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Solutions"/>
+      </Unit2>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -46,6 +61,11 @@
       <IncludeFiles Value="$(ProjOutDir)"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
+    <Parsing>
+      <SyntaxOptions>
+        <SyntaxMode Value="TP"/>
+      </SyntaxOptions>
+    </Parsing>
   </CompilerOptions>
   <Debugging>
     <Exceptions Count="3">
