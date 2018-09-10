@@ -52,22 +52,22 @@ end;
 
 procedure TTestCaseEvenFibonacciNumbers.TestResult;
 begin
-  Check(Solutions.EvenFibonacciNumbers = 4613732, 'Correct!');
+  Check(Solutions.EvenFibonacciNumbers = 4613732, 'Incorrect!');
 end;
 
 procedure TTestCaseLargestPalindromeProduct.TestResult;
 begin
-  Check(Solutions.LargestPalindromeProduct = 906609, 'Correct!');
+  Check(Solutions.LargestPalindromeProduct = 906609, 'Incorrect!');
 end;
 
 procedure TTestCaseLargestPrimeFactor.TestResult;
 begin
-  Check(Solutions.LargestPrimeFactor(600851475143) = 6857, 'Correct!');
+  Check(Solutions.LargestPrimeFactor(600851475143) = 6857, 'Incorrect!');
 end;
 
 procedure TTestCaseMultiplesOf3And5.TestResult;
 begin
-  Check(Solutions.MultiplesOf3And5 = 233168, 'Correct!');
+  Check(Solutions.MultiplesOf3And5 = 233168, 'Incorrect!');
 end;
 
 end.

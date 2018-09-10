@@ -25,14 +25,7 @@ end;
 begin
   printHeader;
 
-  Solutions.MultiplesOf3And5;
-  Solutions.EvenFibonacciNumbers;
-  Solutions.LargestPrimeFactor(600851475143);
-  Solutions.LargestPalindromeProduct;
-
   Tests.RegisterTests;
   RunRegisteredTests;
-
-  ReadLn;
 end.
 
