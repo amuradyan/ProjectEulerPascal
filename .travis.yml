@@ -12,7 +12,7 @@ install:
 
 script:
   - lazbuild ProjectEuler.lpi
-  - ./Pro
+  - ./ProjectEuler
 
 notifications:
   email:
