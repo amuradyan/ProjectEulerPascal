@@ -9,6 +9,14 @@ wget -O fpc-3.0.4.x86_64-linux.tar https://sourceforge.net/projects/freepascal/f
 wget -O fpc-src_3.0.4-2_amd64.deb https://sourceforge.net/projects/lazarus/files/Lazarus%20Linux%20amd64%20DEB/Lazarus%201.8.4/fpc-src_3.0.4-2_amd64.deb/download
 tar -xvf fpc-3.0.4.x86_64-linux.tar
 cd fpc-3.0.4.x86_64-linux
+
+echo 'echo ' > answers.sh
+echo 'echo N' >> answers.sh
+echo 'echo N' >> answers.sh
+echo 'echo N' >> answers.sh
+echo 'echo N' >> answers.sh
+echo 'echo N' >> answers.sh
+
 ./install.sh
 # wget -O fpc_3.0.4-3_amd64.deb https://sourceforge.net/projects/lazarus/files/Lazarus%20Linux%20amd64%20DEB/Lazarus%201.8.4/fpc_3.0.4-3_amd64.deb/download
 sudo dpkg -i lazarus-project_1.8.4-0_amd64.deb fpc-src_3.0.4-2_amd64.deb > /dev/null
