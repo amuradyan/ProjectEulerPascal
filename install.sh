@@ -21,8 +21,9 @@ chmod 777 answers.sh
 ./answers.sh | sudo ./install.sh
 
 popd
-
 sudo dpkg -i lazarus-project_1.8.4-0_amd64.deb > /dev/null
+sudo apt-get -f install --fix-missing
 git clone https://github.com/graemeg/fptest
-cd fptest
+pushd fptest
 lazbuild fptest.lpk
+popd
