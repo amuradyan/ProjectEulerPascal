@@ -6,7 +6,7 @@ os:
   - linux
 
 install:
-  - ./install.sh
+  - sudo ./install.sh
 
 script:
   - lazbuild ProjectEuler.lpi
