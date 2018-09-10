@@ -1,5 +1,4 @@
-# Part of `travis-lazarus` (https://github.com/nielsAD/travis-lazarus)
-# License: MIT
+# Linux version
 
 language: generic
 sudo: required
@@ -13,12 +12,7 @@ env:
 
 install:
   # Install prerequisites (fpc/lazarus/wine/qemu)
-  - if [[ $TRAVIS_OS_NAME == osx ]]; then
-      brew install fpc caskroom/cask/brew-cask;
-      brew cask install fpcsrc lazarus;
-    else
-      sudo apt -q install lazarus lcl-nogui;
-    fi
+  -  sudo apt -q install lazarus lcl-nogui;
 
 script:
   - lazbuild --add-package-link=fptest.lpk; 
@@ -30,3 +24,35 @@ notifications:
   email:
     on_success: never
     on_failure: change
+
+# OS X version
+
+# language: generic
+# sudo: required
+# dist: trusty
+
+# os:
+#   - osx
+
+# env:
+#   - LAZ_VER=1.8.4
+
+# install:
+#   # Install prerequisites (fpc/lazarus/wine/qemu)
+#   - if [[ $TRAVIS_OS_NAME == osx ]]; then
+#       brew install fpc caskroom/cask/brew-cask;
+#       brew cask install fpcsrc lazarus;
+#     else
+#       sudo apt -q install lazarus lcl-nogui;
+#     fi
+
+# script:
+#   - lazbuild --add-package-link=fptest.lpk; 
+#     lazbuild ProjectEuler.lpi               # Build my_lazarus_test project
+#   - ./ProjectEuler # Run my_lazarus_test testsuite
+#   # - $LAZ_ENV ./bin/my_lazarus_tests --all --format=plain # Run my_lazarus_test testsuite
+
+# notifications:
+#   email:
+#     on_success: never
+#     on_failure: change    
