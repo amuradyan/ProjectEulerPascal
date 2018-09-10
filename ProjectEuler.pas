@@ -5,8 +5,7 @@ program ProjectEuler;
 
 uses
  TextTestRunner,
- Tests,
- Solutions;
+ Tests;
 
 procedure printHeader;
 begin

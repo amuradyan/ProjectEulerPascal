@@ -4,14 +4,23 @@ language: generic
 sudo: required
 dist: trusty
 
+env:
+  - LAZ_VER=1.8.4
+  - FPC_VER=3.0.4
+
 os:
   - linux
 
 install:
-  - sudo apt-get install lazarus fpc
+  - wget -O lazarus-project_1.8.4-0_amd64.deb https://sourceforge.net/projects/lazarus/files/Lazarus%20Linux%20amd64%20DEB/Lazarus%201.8.4/lazarus-project_1.8.4-0_amd64.deb/download
+  - wget -O fpc_3.0.4-3_amd64.deb https://sourceforge.net/projects/lazarus/files/Lazarus%20Linux%20amd64%20DEB/Lazarus%201.8.4/fpc_3.0.4-3_amd64.deb/download
+  - wget -O fpc-src_3.0.4-2_amd64.deb https://sourceforge.net/projects/lazarus/files/Lazarus%20Linux%20amd64%20DEB/Lazarus%201.8.4/fpc-src_3.0.4-2_amd64.deb/download
+  - dpkg -i lazarus-project_1.8.4-0_amd64.deb fpc_3.0.4-3_amd64.deb fpc-src_3.0.4-2_amd64.deb
+  - sudo apt-get -f install
 
 script:
-  - lazbuild --add-package-link=fptest.lpk ProjectEuler.lpi
+  - lazbuild ProjectEuler.lpi
+  - ./ProjectEuler
 
 notifications:
   email:
