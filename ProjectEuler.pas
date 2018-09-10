@@ -4,9 +4,9 @@ program ProjectEuler;
 {$H+}      // Use AnsiStrings
 
 uses
-  TextTestRunner,
-  TestFrameworkProxyIfaces,
-  Tests;
+ TextTestRunner,
+ TestFrameworkProxyIfaces,
+ Tests;
 
 procedure printHeader;
 begin
