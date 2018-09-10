@@ -52,7 +52,7 @@ end;
 
 procedure TTestCaseEvenFibonacciNumbers.TestResult;
 begin
-  Check(Solutions.EvenFibonacciNumbers = 4613731, 'Incorrect!');
+  Check(Solutions.EvenFibonacciNumbers = 4613732, 'Incorrect!');
 end;
 
 procedure TTestCaseLargestPalindromeProduct.TestResult;
