@@ -10,13 +10,7 @@ os:
   - osx
 
 env:
-  global:
-    - WINEPREFIX=~/.winelaz
-    - DISPLAY=:99.0
-  matrix:
-    - LAZ_PKG=true  # Use the latest version from the default package manager
-    - LAZ_VER=1.4.4 # Use specific (binary) release
-    - LAZ_VER=1.8.4
+  - LAZ_VER=1.8.4
 
 install:
   # Install prerequisites (fpc/lazarus/wine/qemu)
@@ -26,6 +20,7 @@ install:
     else
       sudo apt -q install lazarus lcl-nogui;
     fi
+    lazbuild --add-package-link=fptest.lpk
 
 script:
   - lazbuild ProjectEuler.lpi               # Build my_lazarus_test project
@@ -34,5 +29,5 @@ script:
 
 notifications:
   email:
-    on_success: false
+    on_success: never
     on_failure: change
