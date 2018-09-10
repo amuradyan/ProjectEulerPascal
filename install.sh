@@ -10,7 +10,7 @@ wget -O fpc-src_3.0.4-2_amd64.deb https://sourceforge.net/projects/lazarus/files
 tar -xvf fpc-3.0.4.x86_64-linux.tar
 cd fpc-3.0.4.x86_64-linux
 
-echo 'echo ' > answers.sh
+echo 'echo /usr' > answers.sh
 echo 'echo N' >> answers.sh
 echo 'echo N' >> answers.sh
 echo 'echo N' >> answers.sh
