@@ -10,6 +10,10 @@ os:
 install:
   - ./install.sh
 
+branches:
+  only:
+  - develop
+
 script:
   - lazbuild ProjectEuler.lpi
   - ./ProjectEuler

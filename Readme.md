@@ -1,4 +1,5 @@
 # [Project Euler](https://projecteuler.net) in Pascal
+[![Build Status](https://travis-ci.com/amuradyan/ProjectEulerPascal.svg?branch=develop)](https://travis-ci.com/amuradyan/ProjectEulerPascal)
 
 ```
  _______                                    _____    __               
