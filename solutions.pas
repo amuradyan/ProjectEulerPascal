@@ -16,7 +16,7 @@ function MultiplesOf3And5: Int64;
 implementation
 
 type
-  IntVector = Array of Int64;
+  Int64Vector = Array of Int64;
   BoolVector = Array of Boolean;
 
 function isPalindrome(number: Int64): Boolean;
@@ -42,10 +42,10 @@ begin
 end;
 
 { @param limit is exclusive }
-function SieveOfEratosthenes(limit: Int64): IntVector;
+function SieveOfEratosthenes(limit: Int64): Int64Vector;
 
 var
-  primes: IntVector;
+  primes: Int64Vector;
   lattice: BoolVector;
   i, j, primesSize: Int64;
 begin
@@ -114,7 +114,7 @@ function LargestPrimeFactor(number: Int64): Int64;
 
 var
   cap, primeFactorsSize, i: Int64;
-  primesOfInterest, primeFactors: IntVector;
+  primesOfInterest, primeFactors: Int64Vector;
 begin
   cap := ceil64(sqrt(number));
   primeFactorsSize := 0;
