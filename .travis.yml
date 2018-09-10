@@ -12,8 +12,7 @@ env:
 
 install:
   # Install prerequisites (fpc/lazarus/wine/qemu)
-  - sudo apt-get update  
-  - sudo apt-get install lazarus lcl-nogui;
+  - sudo aptitude install lazarus fpc fpc-source lcl
 
 script:
   - lazbuild --add-package-link=fptest.lpk; 
