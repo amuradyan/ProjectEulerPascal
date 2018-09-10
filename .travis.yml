@@ -4,10 +4,6 @@ language: generic
 sudo: required
 dist: trusty
 
-env:
-  - LAZ_VER=1.8.4
-  - FPC_VER=3.0.4
-
 os:
   - linux
 
@@ -20,7 +16,7 @@ install:
 
 script:
   - lazbuild ProjectEuler.lpi
-  - ./ProjectEuler
+  - ./Pro
 
 notifications:
   email:
