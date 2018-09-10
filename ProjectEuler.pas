@@ -4,9 +4,9 @@ program ProjectEuler;
 {$H+}      // Use AnsiStrings
 
 uses
- TextTestRunner,
- Tests,
- Solutions;
+  TextTestRunner,
+  TestFrameworkProxyIfaces,
+  Tests;
 
 procedure printHeader;
 begin
@@ -22,17 +22,15 @@ begin
   WriteLn;
 end;
 
+var
+  testRes: ITestResult;
+
 begin
   printHeader;
 
-  Solutions.MultiplesOf3And5;
-  Solutions.EvenFibonacciNumbers;
-  Solutions.LargestPrimeFactor(600851475143);
-  Solutions.LargestPalindromeProduct;
-
   Tests.RegisterTests;
-  RunRegisteredTests;
+  testRes := RunRegisteredTests;
 
-  ReadLn;
+  If testRes.FailureCount <> 0 then Halt(1);
 end.
 
