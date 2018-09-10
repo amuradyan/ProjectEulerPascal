@@ -28,7 +28,8 @@ install:
     fi
 
 script:
-  - lazbuild $LAZ_OPT ProjectEuler.lpi               # Build my_lazarus_test project
+  - lazbuild ProjectEuler.lpi               # Build my_lazarus_test project
+  - ./ProjectEuler # Run my_lazarus_test testsuite
   # - $LAZ_ENV ./bin/my_lazarus_tests --all --format=plain # Run my_lazarus_test testsuite
 
 notifications:
