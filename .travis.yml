@@ -2,7 +2,7 @@
 
 language: generic
 sudo: required
-dist: xenial
+dist: trusty
 
 os:
   - linux
