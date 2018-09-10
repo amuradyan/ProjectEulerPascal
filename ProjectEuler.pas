@@ -5,6 +5,7 @@ program ProjectEuler;
 
 uses
  TextTestRunner,
+ TestFrameworkProxyIfaces,
  Tests;
 
 procedure printHeader;
@@ -21,10 +22,15 @@ begin
   WriteLn;
 end;
 
+var
+  testRes: ITestResult;
+
 begin
   printHeader;
 
   Tests.RegisterTests;
-  RunRegisteredTests;
+  testRes := RunRegisteredTests;
+
+  If testRes.FailureCount <> 0 then Halt(1);
 end.
 
