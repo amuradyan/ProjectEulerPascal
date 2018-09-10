@@ -2,6 +2,7 @@
 
 sudo apt-get update
 echo gcc -v
+echo ld -v
 
 wget -O lazarus-project_1.8.4-0_amd64.deb https://sourceforge.net/projects/lazarus/files/Lazarus%20Linux%20amd64%20DEB/Lazarus%201.8.4/lazarus-project_1.8.4-0_amd64.deb/download
 wget -O fpc_3.0.4-3_amd64.deb https://sourceforge.net/projects/lazarus/files/Lazarus%20Linux%20amd64%20DEB/Lazarus%201.8.4/fpc_3.0.4-3_amd64.deb/download
