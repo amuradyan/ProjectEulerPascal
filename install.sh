@@ -15,9 +15,9 @@ echo 'echo n' >> answers.sh
 echo 'echo n' >> answers.sh
 echo 'echo n' >> answers.sh
 
-chmod +x answers.sh
+chmod 777 answers.sh
 
-sudo ./answers.sh | ./install.sh
+./answers.sh | sudo ./install.sh
 
 # wget -O fpc_3.0.4-3_amd64.deb https://sourceforge.net/projects/lazarus/files/Lazarus%20Linux%20amd64%20DEB/Lazarus%201.8.4/fpc_3.0.4-3_amd64.deb/download
 sudo dpkg -i lazarus-project_1.8.4-0_amd64.deb fpc-src_3.0.4-2_amd64.deb > /dev/null
