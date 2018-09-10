@@ -19,10 +19,10 @@ install:
     else
       sudo apt -q install lazarus lcl-nogui;
     fi
-    lazbuild --add-package-link=fptest.lpk
 
 script:
-  - lazbuild ProjectEuler.lpi               # Build my_lazarus_test project
+  - lazbuild --add-package-link=fptest.lpk; 
+    lazbuild ProjectEuler.lpi               # Build my_lazarus_test project
   - ./ProjectEuler # Run my_lazarus_test testsuite
   # - $LAZ_ENV ./bin/my_lazarus_tests --all --format=plain # Run my_lazarus_test testsuite
 
