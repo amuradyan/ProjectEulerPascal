@@ -183,7 +183,7 @@ begin
   end;
 
   WriteLn('Multiples Of 3 And 5 - ', sum);
-  MultiplesOf3And5 := sum + 1;
+  MultiplesOf3And5 := sum;
 end;
 
 end.
